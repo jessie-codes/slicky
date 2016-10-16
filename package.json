@@ -1,0 +1,23 @@
+{
+  "name": "slicky",
+  "version": "1.0.0",
+  "description": "Unit controller for the game screeps.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jessie-codes/slicky.git"
+  },
+  "keywords": [
+    "screeps"
+  ],
+  "author": "Jessie Barnett",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/jessie-codes/slicky/issues"
+  },
+  "homepage": "https://github.com/jessie-codes/slicky#readme",
+  "private": true
+}
