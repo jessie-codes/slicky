@@ -1,18 +1,21 @@
 //Spawn Management
-const autoSpawner = require('spawner.auto');
-const clearSpawner = require('spawner.clear');
+const spawner = {
+	clear: require('spawner.clear').clear,
+	generate: require('spawner.auto').generate
+};
 
 //Role Management
 const roles = {
 	spawnHarvester: require('role.harvester.spawn'),
-	extensionHarvester: require('role.harvester.spawn'),
+	extensionHarvester: require('role.harvester.extension'),
 	builder: require('role.builder'),
-	upgrader: require('role.upgrader')
-}
+	upgrader: require('role.upgrader'),
+	repairer: require('role.repairer')
+};
 
 module.exports.loop = function () {
-	clearSpawner.clear();	
-	autoSpawner.generate();	
+	spawner.clear();	
+	spawner.generate();	
 	
 	for(const name in Game.creeps) {
 		const creep = Game.creeps[name];

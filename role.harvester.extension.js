@@ -1,4 +1,4 @@
-var harvester = {
+const harvester = {
 	/** @param {Creep} creep **/
 	run: function(creep) {
 		creep.say('Extension');
@@ -12,28 +12,26 @@ var harvester = {
 		}
 
 		if (creep.memory.transfer) {
-			var target = creep.pos.findClosestByRange(FIND_STRUCTURES, {
+			let target = creep.pos.findClosestByRange(FIND_STRUCTURES, {
 				filter: (structure) => {
 					return (structure.structureType == STRUCTURE_EXTENSION) &&
 							structure.energy < structure.energyCapacity;
 				}
 			});
-			if (target){
-				if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-					creep.moveTo(target);
-				}
-			} else {
+			if (!target){
 				target = creep.pos.findClosestByRange(FIND_STRUCTURES, {
 					filter: (structure) => {
 						return (structure.structureType == STRUCTURE_CONTAINER) &&
 								structure.energy < structure.energyCapacity;
 					}
 				});
-				if (target){
-					if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-						creep.moveTo(target);
-					}
-				}
+			}
+			if (target && creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
+				creep.moveTo(target);
+			}
+			target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
+			if(creep.build(target) == ERR_NOT_IN_RANGE) {
+				creep.moveTo(target);
 			}
 		} else {
 			const source = creep.pos.findClosestByRange(FIND_SOURCES);

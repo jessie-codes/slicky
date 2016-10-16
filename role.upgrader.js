@@ -1,4 +1,4 @@
-var roleUpgrader = {
+const upgrader = {
 
 	/** @param {Creep} creep **/
 	run: function(creep) {
@@ -14,7 +14,7 @@ var roleUpgrader = {
 		}
 
 		if(creep.memory.upgrading) {
-		   if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
+			if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
 				creep.moveTo(creep.room.controller);
 			}
 		}
@@ -27,4 +27,4 @@ var roleUpgrader = {
 	}
 };
 
-module.exports = roleUpgrader;
+module.exports = upgrader;
