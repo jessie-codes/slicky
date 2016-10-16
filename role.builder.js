@@ -2,7 +2,7 @@ var roleBuilder = {
 
 	/** @param {Creep} creep **/
 	run: function(creep) {
-
+		creep.say('Builder');
 		if(creep.memory.building && creep.carry.energy == 0) {
 			creep.memory.building = false;
 			creep.say('B: harvesting');
@@ -21,9 +21,9 @@ var roleBuilder = {
 			}
 		}
 		else {
-			var sources = creep.room.find(FIND_SOURCES);
-			if(creep.harvest(sources[1]) == ERR_NOT_IN_RANGE) {
-				creep.moveTo(sources[1]);
+			const source = creep.pos.findClosestByRange(FIND_SOURCES);
+			if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+				creep.moveTo(source);
 			}
 		}
 	}

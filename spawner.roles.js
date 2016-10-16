@@ -12,7 +12,7 @@ const roles = {
 		body: [WORK, CARRY, MOVE]
 	},
 	builder: {
-		min: 2,
+		min: 3,
 		body: [WORK, CARRY, MOVE]
 	},
 };

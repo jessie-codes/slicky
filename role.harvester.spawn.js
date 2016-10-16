@@ -1,6 +1,7 @@
 var harvester = {
 	/** @param {Creep} creep **/
 	run: function(creep) {
+		creep.say('Spawn');
 		if (creep.memory.transfer && creep.carry.energy == 0){
 			creep.memory.transfer = false;
 			creep.say('S: harvesting');
@@ -19,7 +20,7 @@ var harvester = {
 			});
 			if (target){
 				if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-					reep.moveTo(target);
+					creep.moveTo(target);
 				}
 			} else {
 				target = creep.pos.findClosestByRange(FIND_STRUCTURES, {
@@ -30,9 +31,14 @@ var harvester = {
 				});
 				if (target){
 					if (creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
-						reep.moveTo(target);
+						creep.moveTo(target);
 					}
 				}
+			}
+		} else {
+			const source = creep.pos.findClosestByRange(FIND_SOURCES);
+			if(creep.harvest(source) == ERR_NOT_IN_RANGE) {
+				creep.moveTo(source);
 			}
 		}
 	}
