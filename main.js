@@ -1,8 +1,5 @@
 //Spawn Management
-const spawner = {
-	clear: require('spawner.clear').clear,
-	generate: require('spawner.auto').generate
-};
+const spawner = require('spawner');
 
 //Role Management
 const roles = {
