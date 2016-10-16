@@ -1,15 +1,9 @@
+const lib = require('lib');
+
 const repairer = {
 	/** @param {Creep} creep **/
 	run: function(creep) {
-		creep.say('Repairer');
-		if(creep.memory.building && creep.carry.energy == 0) {
-			creep.memory.building = false;
-			creep.say('R: harvesting');
-		}
-		if(!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
-			creep.memory.building = true;
-			creep.say('R: building');
-		}
+		lib.setAction(creep, 'building');
 
 		if(creep.memory.building) {
 			let target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES, {

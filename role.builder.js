@@ -1,16 +1,10 @@
+const lib = require('lib');
+
 const builder = {
 
 	/** @param {Creep} creep **/
 	run: function(creep) {
-		creep.say('Builder');
-		if(creep.memory.building && creep.carry.energy == 0) {
-			creep.memory.building = false;
-			creep.say('B: harvesting');
-		}
-		if(!creep.memory.building && creep.carry.energy == creep.carryCapacity) {
-			creep.memory.building = true;
-			creep.say('B: building');
-		}
+		lib.setAction(creep, 'building');
 
 		if(creep.memory.building) {
 			const targets = creep.room.find(FIND_CONSTRUCTION_SITES);
