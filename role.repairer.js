@@ -8,13 +8,13 @@ const repairer = {
 		lib.setAction(creep, 'building');
 
 		if (creep.memory.building) {
-			let target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES, {
+			let target = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES, {
 				filter: (structure) => {
 					return structure.hits < 1000;
 				}
 			});
 			if (!target) {
-				target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES)
+				target = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES)
 			}
 			if (creep.build(target) == ERR_NOT_IN_RANGE) {
 				creep.moveTo(target);
