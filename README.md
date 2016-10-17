@@ -43,6 +43,62 @@ number of creeps who should be of that role, and the commands that role consist 
 const roles = require('spawner.roles');
 ```
 
+## Role
+
+Files with the `role` prefix contain the logic to control creeps based on their role. Include the main role
+file to get access to all of the role controllers. Each controller should be an object that exposes a `run`
+function.
+
+### Role.Builder
+
+Contains the logic for a generic builder. Builds the first structure returned from the room.
+
+```javascript
+const roles = require('role');
+const creep = Game.creeps[0];
+role.builder.run(creep);
+```
+
+### Role.Harvester.Extension
+
+Contains logic for a harvester that prioritizes extensions.
+
+```javascript
+const roles = require('role');
+const creep = Game.creeps[0];
+role.extensionHarvester.run(creep);
+```
+
+### Role.Harvester.Extension
+
+Contains logic for a harvester that prioritizes spawners.
+
+```javascript
+const roles = require('role');
+const creep = Game.creeps[0];
+role.spawnHarvester.run(creep);
+```
+
+### Role.Repairer
+
+Contains logic for a builder that prioritizes repairs.
+
+```javascript
+const roles = require('role');
+const creep = Game.creeps[0];
+role.repairer.run(creep);
+```
+
+### Role.Upgrader
+
+Contains a creep that does upgrades.
+
+```javascript
+const roles = require('role');
+const creep = Game.creeps[0];
+role.upgrader.run(creep);
+```
+
 ## Lib
 
 Files with the `lib` prefix contain logic that is common amoung at least two roles. Include the main lib file
