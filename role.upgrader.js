@@ -4,7 +4,7 @@ const upgrader = {
 
 	/** @param {Creep} creep **/
 	run: function(creep) {
-		lib.setAction(creep, 'upgradeController');
+		lib.setAction(creep, 'upgrading');
 
 		if(creep.memory.upgrading) {
 			if(creep.upgradeController(creep.room.controller) == ERR_NOT_IN_RANGE) {
@@ -12,7 +12,7 @@ const upgrader = {
 			}
 		}
 		else {
-			lib.harvestNearestResource(creep);
+			lib.harvestNearestResource(creep, true);
 		}
 	}
 };

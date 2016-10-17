@@ -1,6 +1,6 @@
 const lib = require('lib');
 
-const priorities = [STRUCTURE_EXTENSION, STRUCTURE_CONTAINER];
+const priorities = [STRUCTURE_EXTENSION];
 
 const harvester = {
 	/** @param {Creep} creep **/
