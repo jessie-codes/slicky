@@ -1,0 +1,39 @@
+{
+	"extends": "eslint:recommended",
+	"env": {
+		"node": true,
+		"es6": true
+	},
+	"globals": {
+		"CARRY": true,
+		"MOVE": true,
+		"WORK": true,
+		"STRUCTURE_SPAWN": true,
+		"STRUCTURE_CONTAINER": true,
+		"STRUCTURE_EXTENSION": true,
+		"_": true,
+		"Game": true,
+		"ERR_BUSY": true,
+		"ERR_NOT_ENOUGH_ENERGY": true,
+		"ERR_NOT_IN_RANGE": true,
+		"Memory": true,
+		"FIND_CONSTRUCTION_SITES": true,
+		"RESOURCE_ENERGY": true,
+		"FIND_MY_CONSTRUCTION_SITES": true,
+		"FIND_SOURCES": true,
+		"FIND_STRUCTURES": true
+	},
+	"rules": {
+		"no-console": "off",
+		"strict": ["error", "global"],
+		"no-unused-vars": "error",
+		"comma-dangle": ["error", "never"],
+		"func-call-spacing": ["error", "never"],
+		"indent": ["error", "tab"],
+		"keyword-spacing": ["error", {"before": true, "after": true}],
+		"no-ternary": "error",
+		"no-trailing-spaces": "error",
+		"quotes": ["error", "single", {"allowTemplateLiterals": true}],
+		"no-var": "error"
+	}
+}

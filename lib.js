@@ -1,3 +1,5 @@
+'use strict';
+
 const lib = {
 	nearestDropPoint: require('lib.nearestDropPoint'),
 	setAction: require('lib.setAction'),

@@ -1,3 +1,5 @@
+'use strict';
+
 const nearestDropPoint = (creep, priority) => {
 	let target = null;
 

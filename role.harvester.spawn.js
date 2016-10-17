@@ -1,3 +1,5 @@
+'use strict';
+
 const lib = require('lib');
 
 const priorities = [STRUCTURE_SPAWN, STRUCTURE_CONTAINER];
@@ -16,8 +18,8 @@ const harvester = {
 			if (target && creep.transfer(target, RESOURCE_ENERGY) == ERR_NOT_IN_RANGE){
 				creep.moveTo(target);
 			} else {
-				target = creep.pos.findClosestByRange(FIND_CONSTRUCTION_SITES);
-				if(creep.build(target) == ERR_NOT_IN_RANGE) {
+				target = creep.pos.findClosestByRange(FIND_MY_CONSTRUCTION_SITES);
+				if (creep.build(target) == ERR_NOT_IN_RANGE) {
 					creep.moveTo(target);
 				}
 			}

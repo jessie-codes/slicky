@@ -1,7 +1,9 @@
+'use strict';
+
 /**
  * Contains functions needed for automatically spawning creeps.
  * @memberOf spawner
- * @module spawner.roles 
+ * @module spawner.roles
  */
 const roles = {
 	spawnHarvester: {
@@ -12,7 +14,7 @@ const roles = {
 	},
 	extensionHarvester: {
 		min: 1,
-		body: [WORK, CARRY, MOVE],
+		body: [WORK, WORK, CARRY, CARRY, MOVE],
 		priority: [STRUCTURE_EXTENSION, STRUCTURE_CONTAINER],
 		preferContainer: false
 	},

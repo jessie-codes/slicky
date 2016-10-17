@@ -1,3 +1,5 @@
+'use strict';
+
 const setAction = (creep, action) => {
 	if (creep.memory[action] && creep.carry.energy == 0){
 		creep.memory[action] = false;
