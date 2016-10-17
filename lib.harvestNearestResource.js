@@ -2,7 +2,7 @@
 
 const harvestNearestResource = (creep, container) => {
 	if (container){
-		const con = creep.pos.findClosestByRange(FIND_MY_STRUCTURES, {
+		const con = creep.pos.findClosestByRange(FIND_STRUCTURES, {
 			filter: (structure) => {
 				return (structure.structureType == STRUCTURE_CONTAINER) && _.sum(structure.store) > 0;
 			}
