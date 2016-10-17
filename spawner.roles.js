@@ -24,7 +24,7 @@ const roles = {
 		preferContainer: true
 	},
 	builder: {
-		min: 2,
+		min: 3,
 		body: [WORK, CARRY, MOVE],
 		preferContainer: true
 	},

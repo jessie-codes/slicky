@@ -13,7 +13,7 @@ const setInitialLocation = (creep, locationFunction, priorities) => {
 		}
 	} else {
 		creep.memory.ready = true;
-		lib.harvestNearestResource(creep, true);
+		harvestNearestResource(creep, true);
 	}
 };
 
