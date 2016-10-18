@@ -2,7 +2,8 @@
 
 const spawner = {
 	generate: require('spawner.generate'),
-	clear: require('spawner.clear')
+	clear: require('spawner.clear'),
+	attacker: require('spawner.attacker')
 };
 
 module.exports = spawner;

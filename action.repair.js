@@ -2,7 +2,7 @@
 
 const priority = [{
 	name: STRUCTURE_RAMPART,
-	hits: 1000
+	hits: 2000
 }, {
 	name: STRUCTURE_ROAD,
 	hits: 3000

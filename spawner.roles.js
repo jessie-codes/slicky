@@ -7,33 +7,53 @@
  */
 const roles = {
 	harvester: {
-		min: 5,
+		min: 4,
 		body: [WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE],
 		actions: ['transfer', 'build', 'repair', 'upgrade'],
 		priority: [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_CONTAINER],
-		container: false
+		container: false,
+		role: 'harvester'
 	},
 	upgrader: {
-		min: 1,
+		min: 2,
 		body: [WORK, WORK, CARRY, CARRY, MOVE],
 		actions: ['upgrade'],
 		priority: [],
-		container: true
+		container: true,
+		role: 'upgrader'
 	},
 	builder: {
 		min: 1,
 		body: [WORK, WORK, CARRY, CARRY, MOVE],
 		actions: ['build', 'repair', 'upgrade'],
 		priority: [],
-		container: true
+		container: true,
+		role: 'builder'
 	},
 	repairer: {
 		min: 1,
 		body: [WORK, WORK, CARRY, CARRY, MOVE],
 		actions: ['repair', 'build', 'upgrade'],
 		priority: [],
-		container: true
-	}
+		container: true,
+		role: 'repairer'
+	},
+	attacker: {
+		min: 0,
+		body: [MOVE, MOVE, ATTACK, ATTACK, ATTACK, TOUGH, TOUGH],
+		actions: ['attack'],
+		priority: [],
+		container: true,
+		role: 'attacker'
+	},
+	healer: {
+		min: 0,
+		body: [MOVE, HEAL],
+		actions: ['heal'],
+		priority: [],
+		container: true,
+		role: 'healer'
+	},
 };
 
 module.exports = roles;
