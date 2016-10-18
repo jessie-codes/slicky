@@ -24,7 +24,12 @@
 		"RESOURCE_ENERGY": true,
 		"FIND_MY_CONSTRUCTION_SITES": true,
 		"FIND_SOURCES": true,
-		"FIND_STRUCTURES": true
+		"FIND_STRUCTURES": true,
+		"ATTACK": true,
+		"TOUGH": true,
+		"HEAL": true,
+		"FIND_HOSTILE_CREEPS": true,
+		"FIND_MY_CREEPS": true
 	},
 	"rules": {
 		"no-console": "off",

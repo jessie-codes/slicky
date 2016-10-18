@@ -53,7 +53,7 @@ const roles = {
 		priority: [],
 		container: true,
 		role: 'healer'
-	},
+	}
 };
 
 module.exports = roles;

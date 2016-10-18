@@ -15,7 +15,7 @@ module.exports.loop = function () {
 	if (hostiles.length){
 		spawner.attacker();
 	} else {
-		spawner.generate();		
+		spawner.generate();
 	}
 
 
