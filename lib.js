@@ -1,10 +1,9 @@
 'use strict';
 
 const lib = {
-	nearestDropPoint: require('lib.nearestDropPoint'),
 	setAction: require('lib.setAction'),
 	harvestNearestResource: require('lib.harvestNearestResource'),
-	setInitialLocation: require('lib.setInitialLocation')
+	actionRunner: require('lib.actionRunner')
 };
 
 module.exports = lib;

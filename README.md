@@ -45,64 +45,86 @@ const roles = require('spawner.roles');
 
 ## Role
 
-Files with the `role` prefix contain the logic to control creeps based on their role. Include the main role
-file to get access to all of the role controllers. Each controller should be an object that exposes a `run`
-function.
+Files with the `role` prefix contain the logic to control creeps.
 
-### Role.Builder
+### Role.Default
 
-Contains the logic for a generic builder. Builds the first structure returned from the room.
+Contains the default role logic.
 
 ```javascript
 const roles = require('role');
 const creep = Game.creeps[0];
-role.builder.run(creep);
+role.default(creep);
 ```
 
-### Role.Harvester.Extension
+## Action
 
-Contains logic for a harvester that prioritizes extensions.
+Files with the `action` prefix contain the logic to perform actions. Include the main action file to
+get access to all of the functions.
+
+### Action.Build
+
+Contains the logic to tell a creep to build a construction site.
 
 ```javascript
-const roles = require('role');
+const actions = require('action');
 const creep = Game.creeps[0];
-role.extensionHarvester.run(creep);
+
+//Attempt to build something
+actions.build(creep);
 ```
 
-### Role.Harvester.Extension
+### Action.Repair
 
-Contains logic for a harvester that prioritizes spawners.
+Contains the logic to tell a creep to repair a rampart, road, wall, or container
 
 ```javascript
-const roles = require('role');
+const actions = require('action');
 const creep = Game.creeps[0];
-role.spawnHarvester.run(creep);
+
+//Attempt to repair something
+actions.repair(creep);
 ```
 
-### Role.Repairer
+### Action.Transfer
 
-Contains logic for a builder that prioritizes repairs.
+Contains the logic to tell a creep to transfer energy to a spawn, extension, or container.
 
 ```javascript
-const roles = require('role');
+const actions = require('action');
 const creep = Game.creeps[0];
-role.repairer.run(creep);
+
+//Attempt to transfer energy
+actions.transfer(creep);
 ```
 
-### Role.Upgrader
+### Action.Upgrade
 
-Contains a creep that does upgrades.
+Contains the logic to tell a creep to upgrade the room controller.
 
 ```javascript
-const roles = require('role');
+const actions = require('action');
 const creep = Game.creeps[0];
-role.upgrader.run(creep);
+
+//Upgrade the room controller
+actions.upgrade(creep);
 ```
 
 ## Lib
 
 Files with the `lib` prefix contain logic that is common amoung at least two roles. Include the main lib file
 to get access to all of the functions.
+
+### Lib.ActionRunner
+
+Runs through the creep's action array. Returns when it finds a successful action.
+
+```javascript
+const lib = require('lib');
+
+//Runs through the creeps action array.
+lib.actionRunner(creep);
+```
 
 ### Lib.HarvestNearestResource
 
@@ -116,35 +138,11 @@ const lib = require('lib');
 lib.harvestNearestResource(creep);
 ```
 
-### Lib.NearestDropPoint
-
-Uses an array of priorities to determine where resources should be transferred to. Gets the closest location
-based on priority and capacity. Returns the best target.
-
-```javascript
-const lib = require('lib');
-
-//Locates the best place to transfer resources.
-const target = lib.nearestDropPoint(creep, [STRUCTURE_SPAWN, STRUCTURE_CONTAINER]);
-```
-
 ### Lib.SetAction
-Determines whether the creep should harvest resources or do it's default action.
+Determines whether the creep should harvest resources or perform an action.
 
 ```javascript
 const lib = require('lib');
 
-lib.setAction(creep, 'transfer');
-```
-
-### Lib.SetInitialLocation
-Moves the creep to the resource that is closest to the structure the creep will perform it's first task on. Takes
-a creep, a function returning a target, and options for that function as arguments. Set the attribute `creep.memory.ready` to `true`
-once the creep is in position.
-
-```javascript
-const lib = require('lib');
-
-//Locates the best place to transfer resources.
-lib.setInitialLocation(creep, lib.nearestDropPoint, [STRUCTURE_SPAWN, STRUCTURE_CONTAINER]);
+lib.setAction(creep);
 ```

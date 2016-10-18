@@ -1,13 +1,11 @@
 'use strict';
 
-const setAction = (creep, action) => {
-	if (creep.memory[action] && creep.carry.energy == 0){
-		creep.memory[action] = false;
-		creep.say('harvesting');
+const setAction = (creep) => {
+	if (creep.memory.action && creep.carry.energy == 0){
+		creep.memory.action = false;
 	}
-	if (!creep.memory[action] && creep.carry.energy == creep.carryCapacity){
-		creep.memory[action] = true;
-		creep.say(action);
+	if (!creep.memory.action && creep.carry.energy == creep.carryCapacity){
+		creep.memory.action = true;
 	}
 };
 

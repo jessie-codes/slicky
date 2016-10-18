@@ -6,32 +6,33 @@
  * @module spawner.roles
  */
 const roles = {
-	spawnHarvester: {
-		min: 2,
-		body: [WORK, WORK, CARRY, CARRY, MOVE],
-		priority: [STRUCTURE_SPAWN, STRUCTURE_CONTAINER],
-		preferContainer: false
-	},
-	extensionHarvester: {
-		min: 1,
-		body: [WORK, WORK, CARRY, CARRY, MOVE],
-		priority: [STRUCTURE_EXTENSION, STRUCTURE_CONTAINER],
-		preferContainer: false
+	harvester: {
+		min: 5,
+		body: [WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE],
+		actions: ['transfer', 'build', 'repair', 'upgrade'],
+		priority: [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_CONTAINER],
+		container: false
 	},
 	upgrader: {
 		min: 1,
-		body: [WORK, CARRY, MOVE],
-		preferContainer: true
+		body: [WORK, WORK, CARRY, CARRY, MOVE],
+		actions: ['upgrade'],
+		priority: [],
+		container: true
 	},
 	builder: {
-		min: 3,
-		body: [WORK, CARRY, MOVE],
-		preferContainer: true
+		min: 1,
+		body: [WORK, WORK, CARRY, CARRY, MOVE],
+		actions: ['build', 'repair', 'upgrade'],
+		priority: [],
+		container: true
 	},
 	repairer: {
-		min: 0,
-		body: [WORK, CARRY, MOVE],
-		preferContainer: true
+		min: 1,
+		body: [WORK, WORK, CARRY, CARRY, MOVE],
+		actions: ['repair', 'build', 'upgrade'],
+		priority: [],
+		container: true
 	}
 };
 

@@ -12,6 +12,6 @@ module.exports.loop = function () {
 
 	for (const name in Game.creeps) {
 		const creep = Game.creeps[name];
-		roles[creep.memory.role].run(creep);
+		roles.default(creep);
 	}
 };
