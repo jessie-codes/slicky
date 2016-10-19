@@ -4,7 +4,7 @@ const roles = require('spawner.roles');
 
 const generate = () => {
 	for (const n in roles){
-		const creepers = _.filter(Game.creeps, (creep) => creep.memory.role == n);
+		const creepers = _.filter(Game.creeps, (creep) => {creep.memory.role === n});
 		if (creepers.length < roles[n].min) {
 			const name = Game.spawns['Spawner'].createCreep(roles[n].body, undefined, roles[n]);
 			if (name !== ERR_NOT_ENOUGH_ENERGY && name !== ERR_BUSY){

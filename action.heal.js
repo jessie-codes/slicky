@@ -7,10 +7,10 @@ const heal = (creep) => {
 		}
 	});
 	if (target.length){
-		if (creep.heal(target[0]) == ERR_NOT_IN_RANGE){
+		if (creep.heal(target[0]) === ERR_NOT_IN_RANGE){
 			creep.moveTo(target[0]);
 		}
-		return true;
+		return 'heal';
 	}
 	return false;
 }

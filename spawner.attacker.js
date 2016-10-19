@@ -6,7 +6,7 @@ const backup = require('spawner.generate');
 const generate = () => {
 	const attackers = ['attacker', 'healer'];
 	for (const n in attackers){
-		const creepers = _.filter(Game.creeps, (creep) => creep.memory.role == n);
+		const creepers = _.filter(Game.creeps, (creep) => {creep.memory.role === n});
 		if (creepers.length < 3) {
 			const name = Game.spawns['Spawner'].createCreep(roles[n].body, undefined, roles[n]);
 			if (name !== ERR_NOT_ENOUGH_ENERGY && name !== ERR_BUSY){
