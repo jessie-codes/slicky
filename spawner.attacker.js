@@ -1,6 +1,7 @@
 'use strict';
 
 const roles = require('spawner.roles');
+const backup = require('spawner.generate');
 
 const generate = () => {
 	const attackers = ['attacker', 'healer'];
@@ -14,6 +15,7 @@ const generate = () => {
 			}
 		}
 	}
+	backup();
 	return false;
 };
 

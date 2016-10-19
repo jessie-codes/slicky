@@ -29,7 +29,8 @@
 		"TOUGH": true,
 		"HEAL": true,
 		"FIND_HOSTILE_CREEPS": true,
-		"FIND_MY_CREEPS": true
+		"FIND_MY_CREEPS": true,
+		"STRUCTURE_TOWER": true
 	},
 	"rules": {
 		"no-console": "off",

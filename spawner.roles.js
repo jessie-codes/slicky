@@ -10,7 +10,7 @@ const roles = {
 		min: 4,
 		body: [WORK, WORK, WORK, CARRY, CARRY, CARRY, MOVE],
 		actions: ['transfer', 'build', 'repair', 'upgrade'],
-		priority: [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_CONTAINER],
+		priority: [STRUCTURE_SPAWN, STRUCTURE_EXTENSION, STRUCTURE_TOWER, STRUCTURE_CONTAINER],
 		container: false,
 		role: 'harvester'
 	},
@@ -31,7 +31,7 @@ const roles = {
 		role: 'builder'
 	},
 	repairer: {
-		min: 1,
+		min: 0,
 		body: [WORK, WORK, CARRY, CARRY, MOVE],
 		actions: ['repair', 'build', 'upgrade'],
 		priority: [],

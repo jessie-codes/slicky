@@ -47,102 +47,12 @@ const roles = require('spawner.roles');
 
 Files with the `role` prefix contain the logic to control creeps.
 
-### Role.Default
-
-Contains the default role logic.
-
-```javascript
-const roles = require('role');
-const creep = Game.creeps[0];
-role.default(creep);
-```
-
 ## Action
 
 Files with the `action` prefix contain the logic to perform actions. Include the main action file to
 get access to all of the functions.
 
-### Action.Build
-
-Contains the logic to tell a creep to build a construction site.
-
-```javascript
-const actions = require('action');
-const creep = Game.creeps[0];
-
-//Attempt to build something
-actions.build(creep);
-```
-
-### Action.Repair
-
-Contains the logic to tell a creep to repair a rampart, road, wall, or container
-
-```javascript
-const actions = require('action');
-const creep = Game.creeps[0];
-
-//Attempt to repair something
-actions.repair(creep);
-```
-
-### Action.Transfer
-
-Contains the logic to tell a creep to transfer energy to a spawn, extension, or container.
-
-```javascript
-const actions = require('action');
-const creep = Game.creeps[0];
-
-//Attempt to transfer energy
-actions.transfer(creep);
-```
-
-### Action.Upgrade
-
-Contains the logic to tell a creep to upgrade the room controller.
-
-```javascript
-const actions = require('action');
-const creep = Game.creeps[0];
-
-//Upgrade the room controller
-actions.upgrade(creep);
-```
-
 ## Lib
 
 Files with the `lib` prefix contain logic that is common amoung at least two roles. Include the main lib file
 to get access to all of the functions.
-
-### Lib.ActionRunner
-
-Runs through the creep's action array. Returns when it finds a successful action.
-
-```javascript
-const lib = require('lib');
-
-//Runs through the creeps action array.
-lib.actionRunner(creep);
-```
-
-### Lib.HarvestNearestResource
-
-Use's the creep's position `findClosestByRange` function to find the closest resource that can be harvested, and
-attempts to harvest. If it is out of range, it will move the creep towards the resource. Take a creep as an argument.
-
-```javascript
-const lib = require('lib');
-
-//Locates and attempts to harvest from the nearest resource.
-lib.harvestNearestResource(creep);
-```
-
-### Lib.SetAction
-Determines whether the creep should harvest resources or perform an action.
-
-```javascript
-const lib = require('lib');
-
-lib.setAction(creep);
-```
