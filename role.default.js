@@ -2,14 +2,13 @@
 
 const lib = require('lib');
 
-const roles = (creep) => {
+const roles = (creep, underAttack) => {
 	lib.setAction(creep);
 
 	if (creep.memory.action) {
-		lib.actionRunner(creep);
+		lib.actionRunner(creep, underAttack);
 	}
 	else {
-		creep.say('harvesting');
 		lib.harvestNearestResource(creep);
 	}
 };

@@ -1,7 +1,7 @@
 # slicky
 Unit controller for the game screeps.
 
-## main.js
+## Main
 
 Contains the logic to run every tick.
 
@@ -23,3 +23,7 @@ get access to all of the functions.
 
 Files with the `lib` prefix contain logic that is common amoung at least two roles. Include the main lib file
 to get access to all of the functions.
+
+## Tower
+
+Contains the logic for any towers in the room.

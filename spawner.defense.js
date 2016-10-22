@@ -7,35 +7,35 @@
  */
 const roles = {
 	harvester: {
-		min: 4,
-		body: [WORK, WORK, WORK, WORK, WORK, CARRY, MOVE],
+		min: 2,
+		body: [WORK, CARRY, MOVE],
 		actions: ['transfer', 'build', 'repair', 'upgrade'],
 		container: false,
 		role: 'harvester'
 	},
-	upgrader: {
-		min: 2,
-		body: [WORK, WORK, WORK, CARRY, MOVE],
-		actions: ['upgrade'],
-		priority: [],
-		container: true,
-		role: 'upgrader'
-	},
-	builder: {
-		min: 2,
-		body: [WORK, WORK, CARRY, CARRY, MOVE],
-		actions: ['build', 'repair', 'upgrade'],
-		priority: [],
-		container: true,
-		role: 'builder'
-	},
 	mover: {
-		min: 3,
-		body: [CARRY, CARRY, CARRY, CARRY, MOVE, MOVE, MOVE, MOVE],
+		min: 2,
+		body: [CARRY, CARRY, MOVE, MOVE],
 		actions: ['move'],
 		priority: [],
 		container: true,
 		role: 'mover'
+	},
+	attacker: {
+		min: 3,
+		body: [MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, RANGED_ATTACK, TOUGH, TOUGH, TOUGH],
+		actions: ['attack'],
+		priority: [],
+		container: true,
+		role: 'attacker'
+	},
+	healer: {
+		min: 2,
+		body: [MOVE, MOVE, HEAL, HEAL],
+		actions: ['heal'],
+		priority: [],
+		container: true,
+		role: 'healer'
 	}
 };
 

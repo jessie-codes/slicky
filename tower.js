@@ -3,17 +3,18 @@
 const lib = require('lib');
 
 const actions = ['heal', 'attack', 'repair'];
-
-const t = Game.getObjectById('58069df2295263e74bf6c599');
-t.say = (word) => {
-	console.log(word);
-};
+const controller = Game.getObjectById('57ef9d1386f108ae6e60d389');
 
 const tower = () => {
-	t.memory = {};
-	t.memory.actions = actions;
-	t.memory.minEnergy = 250;
-	lib.actionRunner(t);
+	const towers = controller.room.find(STRUCTURE_TOWER);
+	for (let i = 0, len = towers.length; i < len; i++){
+		const t = towers[i];
+		t.memory = {
+			actions: actions,
+			minEnergy: 250
+		};
+		lib.actionRunner();
+	}
 };
 
 module.exports = tower;

@@ -1,15 +1,13 @@
 'use strict';
 
-const roles = require('spawner.roles');
-const backup = require('spawner.generate');
+const roles = require('spawner.defense');
 
 const generate = () => {
-	const attackers = ['attacker', 'healer'];
-	for (const n in attackers){
+	for (const n in roles){
 		const creepers = _.filter(Game.creeps, (creep) => {
-			return creep.memory.role === n
+			return creep.memory.role.trim() === n.trim();
 		});
-		if (creepers.length < 3) {
+		if (creepers.length < roles[n].min) {
 			const name = Game.spawns['Spawner'].createCreep(roles[n].body, undefined, roles[n]);
 			if (name !== ERR_NOT_ENOUGH_ENERGY && name !== ERR_BUSY){
 				console.log(`Created ${name} with role ${n}`);
@@ -17,7 +15,6 @@ const generate = () => {
 			}
 		}
 	}
-	backup();
 	return false;
 };
 
