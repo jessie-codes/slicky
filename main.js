@@ -3,31 +3,26 @@
 //Spawn Management
 const spawner = require('spawner');
 
-//Role Management
-const roles = require('role');
-
-//Tower management
-const tower = require('tower');
-
-//Controller
-const controller = Game.getObjectById('5804c23d447bda2d7b50352e');
+//Lib functions
+const lib = require('lib');
 
 module.exports.loop = function () {
-	spawner.clear();
+	const data = lib.getData();
 
-	const underAttack = controller.room.find(FIND_HOSTILE_CREEPS).length > 0;
+	if (data.clear) spawner.clear();
 
-	if (underAttack){
-		spawner.attacker();
-	} else {
-		spawner.generate();
+	for (const room in data.rooms){
+		const r = data.rooms[room];
+		if (data.spawn) spawner.generate(r);
+
+		for (const name in r.creeps){
+			const creep = r.creeps[name];
+			if (creep.fatigue === 0) lib.creep(creep, r);
+		}
+
+		lib.panic(r);
+
+		lib.tower(r);
 	}
 
-
-	tower(underAttack);
-
-	for (const name in Game.creeps) {
-		const creep = Game.creeps[name];
-		roles.default(creep, underAttack);
-	}
 };

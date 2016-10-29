@@ -1,27 +1,41 @@
 'use strict';
 
-const harvestNearestResource = (creep) => {
-	if (creep.memory.container){
-		const con = creep.pos.findClosestByRange(FIND_STRUCTURES, {
-			filter: (structure) => {
-				if (creep.memory.role === 'mover' && structure.id === '58096be9fb99a90c5aed12c0') return false;
-				return (structure.structureType === STRUCTURE_CONTAINER) && _.sum(structure.store) > 0;
-			}
-		});
-		if (con){
-			if (creep.withdraw(con, RESOURCE_ENERGY) === ERR_NOT_IN_RANGE){
-				creep.moveTo(con);
+const harvestNearestResource = (creep, room) => {
+	if (creep.memory.dropped){
+		if (room.dropped.length){
+			if (creep.pickup(room.dropped[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE){
+				creep.moveTo(room.dropped[0]);
 			}
 			return;
 		}
 	}
-	const source = creep.pos.findClosestByRange(FIND_SOURCES, {
-		filter: (structure) => {
-			return structure._energy > 0;
+	if (creep.memory.container){
+		let container = _.filter(room.links, structure => {
+			if (creep.memory.role === 'mover') return false;
+			return structure.energy > 0;
+		});
+		if (!container.length){
+			container = _.filter(room.containers, structure => {
+				return _.sum(structure.store) > 0
+			});
 		}
+		if (container.length){
+			if (creep.withdraw(container[0], RESOURCE_ENERGY) === ERR_NOT_IN_RANGE){
+				creep.moveTo(container[0]);
+			}
+			return;
+		}
+	}
+
+	const source = _.filter(room.sources, structure => {
+		if (creep.memory.resourceId && structure.id !== creep.memory.resourceId) return false;
+		return structure._energy > 0;
 	});
-	if (creep.harvest(source) === ERR_NOT_IN_RANGE) {
-		creep.moveTo(source);
+
+	if (source.length) {
+	 	if (creep.harvest(source[0]) === ERR_NOT_IN_RANGE) {
+			creep.moveTo(source[0]);
+		}
 	}
 };
 

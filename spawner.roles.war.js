@@ -1,20 +1,15 @@
 'use strict';
 
-/**
- * Contains functions needed for automatically spawning creeps.
- * @memberOf spawner
- * @module spawner.roles
- */
-const roles = {
+const war = {
 	harvester: {
-		min: 2,
+		min: 1,
 		body: [WORK, CARRY, MOVE],
 		actions: ['transfer', 'build', 'repair', 'upgrade'],
 		container: false,
 		role: 'harvester'
 	},
 	mover: {
-		min: 2,
+		min: 1,
 		body: [CARRY, CARRY, MOVE, MOVE],
 		actions: ['move'],
 		priority: [],
@@ -23,7 +18,7 @@ const roles = {
 	},
 	attacker: {
 		min: 3,
-		body: [MOVE, MOVE, ATTACK, ATTACK, ATTACK, ATTACK, RANGED_ATTACK, TOUGH, TOUGH, TOUGH],
+		body: [ATTACK, ATTACK, TOUGH, TOUGH, TOUGH, MOVE, MOVE],
 		actions: ['attack'],
 		priority: [],
 		container: true,
@@ -31,7 +26,7 @@ const roles = {
 	},
 	healer: {
 		min: 2,
-		body: [MOVE, MOVE, HEAL, HEAL],
+		body: [HEAL, HEAL, MOVE, MOVE],
 		actions: ['heal'],
 		priority: [],
 		container: true,
@@ -39,4 +34,4 @@ const roles = {
 	}
 };
 
-module.exports = roles;
+module.exports = war;

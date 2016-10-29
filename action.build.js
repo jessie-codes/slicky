@@ -1,10 +1,9 @@
 'use strict';
 
-const build = (creep) => {
-	const targets = creep.room.find(FIND_MY_CONSTRUCTION_SITES);
-	if (targets.length) {
-		if (creep.build(targets[0]) === ERR_NOT_IN_RANGE) {
-			creep.moveTo(targets[0]);
+const build = (creep, room) => {
+	if (room.construction.length) {
+		if (creep.build(room.construction[0]) === ERR_NOT_IN_RANGE) {
+			creep.moveTo(room.construction[0]);
 		}
 		return 'build';
 	}

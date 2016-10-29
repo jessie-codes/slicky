@@ -1,10 +1,8 @@
 'use strict';
 
-const heal = (creep) => {
-	const target = creep.room.find(FIND_MY_CREEPS, {
-		filter: (c) => {
-			return c.hits < 200;
-		}
+const heal = (creep, room) => {
+	const target = _.filter(room.creeps, creep => {
+		return creep.hits < 200;
 	});
 	if (target.length){
 		if (creep.heal(target[0]) === ERR_NOT_IN_RANGE){

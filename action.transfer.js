@@ -4,11 +4,13 @@ const transfer = (creep) => {
 	let target = [];
 	target = creep.pos.findClosestByRange(FIND_STRUCTURES, {
 		filter: (structure) => {
-			return (
-				structure.structureType === STRUCTURE_CONTAINER
-				&& _.sum(structure.store) < structure.storeCapacity
-				&& structure.id !== '58096be9fb99a90c5aed12c0'
-			);
+			if (structure.structureType === STRUCTURE_CONTAINER){
+				return (_.sum(structure.store) < structure.storeCapacity)
+			}
+			if (structure.structureType === STRUCTURE_LINK){
+				return (structure.energy < structure.energyCapacity && structure.id !== '5812ee99260a734d489f17f2')
+			}
+			return false;
 		}
 	});
 
