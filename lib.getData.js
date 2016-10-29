@@ -1,3 +1,5 @@
+'use strict';
+
 function getData(){
 
 	let data = {};
@@ -7,31 +9,31 @@ function getData(){
 		const structures = Game.rooms[room].find(FIND_STRUCTURES);
 		data.rooms[room] = {
 			room: room,
-			controller: _.first(_.filter(structures, structure => {
+			controller: _.first(_.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_CONTROLLER;
 			})),
-			towers: _.filter(structures, structure => {
+			towers: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_TOWER;
 			}),
-			walls: _.filter(structures, structure => {
+			walls: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_WALL;
 			}),
-			ramparts: _.filter(structures, structure => {
+			ramparts: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_RAMPART;
 			}),
-			containers: _.filter(structures, structure => {
+			containers: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_CONTAINER;
 			}),
-			links: _.filter(structures, structure => {
+			links: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_LINK;
 			}),
-			spawns: _.filter(structures, structure => {
+			spawns: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_SPAWN;
 			}),
-			extensions: _.filter(structures, structure => {
+			extensions: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_EXTENSION;
 			}),
-			roads: _.filter(structures, structure => {
+			roads: _.filter(structures, (structure) => {
 				return structure.structureType === STRUCTURE_ROAD;
 			}),
 			sources: Game.rooms[room].find(FIND_SOURCES),
@@ -40,12 +42,12 @@ function getData(){
 			hostiles: Game.rooms[room].find(FIND_HOSTILE_CREEPS),
 			construction: Game.rooms[room].find(FIND_CONSTRUCTION_SITES)
 		};
-	};
+	}
 
-	data.spawn = (Game.time % 50 === 0);
-	data.clear = (Game.time % 500 === 0);
+	data.spawn = (Game.time % 20 === 0);
+	data.clear = (Game.time % 20 === 0);
 
 	return data;
-};
+}
 
 module.exports = getData;

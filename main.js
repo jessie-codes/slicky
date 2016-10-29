@@ -23,6 +23,8 @@ module.exports.loop = function () {
 		lib.panic(r);
 
 		lib.tower(r);
+
+		lib.link(r);
 	}
 
 };

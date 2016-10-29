@@ -7,7 +7,8 @@ const lib = {
 	getData: require('lib.getData'),
 	panic: require('lib.panic'),
 	creep: require('lib.creep'),
-	tower: require('lib.tower')
+	tower: require('lib.tower'),
+	link: require('lib.link')
 };
 
 module.exports = lib;

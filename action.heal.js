@@ -1,7 +1,7 @@
 'use strict';
 
 const heal = (creep, room) => {
-	const target = _.filter(room.creeps, creep => {
+	const target = _.filter(room.creeps, (creep) => {
 		return creep.hits < 200;
 	});
 	if (target.length){

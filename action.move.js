@@ -3,49 +3,35 @@
 const store = (creep, room) => {
 	let target = [];
 	if (room.hostiles.length){
-		target = _.filter(room.towers, structure => {
+		target = _.filter(room.towers, (structure) => {
 			if (structure.energy > 250) return false;
 			return true;
 		});
 	}
 
 	if (!target.length){
-		target = _.filter(room.spawns, structure => {
+		target = _.filter(room.spawns, (structure) => {
 			if (structure.energy === structure.energyCapacity) return false;
 			return true;
 		});
 	}
 
 	if (!target.length){
-		target = _.filter(room.extensions, structure => {
+		target = _.filter(room.extensions, (structure) => {
 			if (structure.energy === structure.energyCapacity) return false;
 			return true;
 		});
 	}
 
 	if (!target.length){
-		target = _.filter(room.links, structure => {
+		target = _.filter(room.towers, (structure) => {
 			if (structure.energy > 250) return false;
 			return true;
 		});
 	}
 
 	if (!target.length){
-		target = _.filter(room.towers, structure => {
-			if (structure.energy > 250) return false;
-			return true;
-		});
-	}
-
-	if (!target.length){
-		target = _.filter(room.towers, structure => {
-			if (structure.energy > structure.energyCapacity) return false;
-			return true;
-		});
-	}
-
-	if (!target.length){
-		target = _.filter(room.links, structure => {
+		target = _.filter(room.towers, (structure) => {
 			if (structure.energy > structure.energyCapacity) return false;
 			return true;
 		});

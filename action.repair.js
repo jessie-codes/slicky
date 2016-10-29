@@ -12,11 +12,11 @@ const repair = (creep, room) => {
 
 
 	if (targets.length){
-		const min = _.min(_.filter(targets, structure => {
+		const min = _.min(_.filter(targets, (structure) => {
 			if (structure.structureType === STRUCTURE_ROAD && structure.hits > 4000) return false;
 			if (structure.hits === structure.hitsMax) return false;
 			return true;
-		}), structure => {
+		}), (structure) => {
 			return structure.hits
 		});
 		if (creep.repair(min) === ERR_NOT_IN_RANGE){
